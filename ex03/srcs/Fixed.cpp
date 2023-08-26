@@ -51,7 +51,7 @@ Fixed	&Fixed::operator=(const Fixed &other)
 
 std::ostream	&operator<<(std::ostream &os, const Fixed &fixed)
 {
-	os << std::setprecision(8) << fixed.toFloat();
+	os << fixed.toFloat();
 	return (os);
 }
 
@@ -59,37 +59,33 @@ std::ostream	&operator<<(std::ostream &os, const Fixed &fixed)
 
 bool	Fixed::operator>(const Fixed &other) const
 {
-	if (_value == other._value)
-		return (_fractionalBits > other._fractionalBits);
 	return (_value > other._value);
 }
 
 bool	Fixed::operator<(const Fixed &other) const
 {
-	if (_value == other._value)
-		return (_fractionalBits < other._fractionalBits);
 	return (_value < other._value);
 
 }
 
 bool	Fixed::operator>=(const Fixed &other) const
 {
-	return ((*this > other) || (*this == other));
+	return (_value >= other._value);
 }
 
 bool	Fixed::operator<=(const Fixed &other) const
 {
-	return ((*this < other) || (*this == other));
+	return (_value <= other._value);
 }
 
 bool	Fixed::operator==(const Fixed &other) const
 {
-	return ((_value == other._value) && (_fractionalBits == other._fractionalBits));
+	return (_value == other._value);
 }
 
 bool	Fixed::operator!=(const Fixed &other) const
 {
-	return ((_value != other._value) || (_fractionalBits != other._fractionalBits));
+	return (_value != other._value);
 }
 
 // Arithmetic operators
@@ -123,7 +119,7 @@ Fixed	&Fixed::operator++(void)
 Fixed	Fixed::operator++(int)
 {
 	Fixed	temp(*this);
-	
+
 	++(*this);
 	return (temp);
 }
@@ -170,7 +166,6 @@ Fixed	Fixed::max(const Fixed &fixed1, const Fixed &fixed2)
 	return (fixed2);
 }
 
-
 /* Member Functions */
 
 /* Public */
@@ -180,7 +175,7 @@ int	Fixed::getRawBits(void) const
 	return (_value);
 }
 
-void	Fixed::setRawBits(const int raw)
+void	Fixed::setRawBits(int raw)
 {
 	_value = raw;
 }

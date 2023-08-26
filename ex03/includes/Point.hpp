@@ -6,11 +6,11 @@
 /*   By: nicolas <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 13:23:40 by nicolas           #+#    #+#             */
-/*   Updated: 2023/06/07 15:38:59 by nicolas          ###   ########.fr       */
+/*   Updated: 2023/08/26 13:31:13 by nplieger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #ifndef POINT_HPP
-# define POINT_hpp
+# define POINT_HPP
 
 # include "Fixed.hpp"
 

@@ -6,7 +6,7 @@
 /*   By: nicolas <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 00:41:35 by nicolas           #+#    #+#             */
-/*   Updated: 2023/06/07 18:11:58 by nicolas          ###   ########.fr       */
+/*   Updated: 2023/08/26 13:38:57 by nplieger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "Point.hpp"
@@ -38,14 +38,13 @@ int	main(void)
 	B = Point(2, 0);
 	C = Point(0, 2);
 	P = Point(0.25, 0.25);
-	// Test 4 : Point set outside of triangle.
+	// Test 4 : Point set inside of triangle.
 	std::cout << "\033[37m" << "Test 4 : " << "expected IN" << " got " << "\033[37m";
 	std::cout << "\033[35m" << (bsp(A, B, C, P) ? "IN" : "OUT") << "\033[0m" << std::endl;
 
-	P = Point(0.5, 0.5);
+	P = Point(1, 1);
 	// Test 5 : Point on hypotenuse. Rounding affects the result.
-	std::cout << "\033[37m" << "Test 5 : " << "expected IN";
-	std::cout << "\033[31m" << " (due to rounded value)";
+	std::cout << "\033[37m" << "Test 5 : " << "expected OUT";
 	std::cout << "\033[37m" << " got " << "\033[37m";
 	std::cout << "\033[35m" << (bsp(A, B, C, P) ? "IN" : "OUT") << "\033[0m" << std::endl;
 

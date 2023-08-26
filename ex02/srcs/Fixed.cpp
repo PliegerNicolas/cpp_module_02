@@ -166,7 +166,6 @@ Fixed	Fixed::max(const Fixed &fixed1, const Fixed &fixed2)
 	return (fixed2);
 }
 
-
 /* Member Functions */
 
 /* Public */
