@@ -6,7 +6,7 @@
 /*   By: nicolas <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 00:41:35 by nicolas           #+#    #+#             */
-/*   Updated: 2023/08/26 13:27:16 by nplieger         ###   ########.fr       */
+/*   Updated: 2023/08/26 13:43:33 by nplieger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "Fixed.hpp"
@@ -112,7 +112,7 @@ static void	addition(void)
 	std::cout << "a + 1 : " << a + 1 << std::endl;
 	std::cout << "a + 1.5f : " << a + 1.5f << std::endl;
 
-	std::cout << "Increment operator increments from the smallest";
+	std::cout << "Increment operator increments with the smallest";
 	std::cout << " available step : 1 / 2^8" << std::endl;
 	std::cout << "1/2^8 : " << 1.0f / (1 << 8) << std::endl;
 	std::cout << "++a : " << ++a << std::endl;
@@ -137,7 +137,7 @@ static void	substraction(void)
 	std::cout << "a - 1 : " << a - 1 << std::endl;
 	std::cout << "a - 1.5f : " << a - 1.5f << std::endl;
 
-	std::cout << "Increment operator increments from the smallest";
+	std::cout << "Increment operator decrements with the smallest";
 	std::cout << " available step : 1 / 2^8" << std::endl;
 	std::cout << "1/2^8 : " << 1.0f / (1 << 8) << std::endl;
 	std::cout << "--a : " << --a << std::endl;
