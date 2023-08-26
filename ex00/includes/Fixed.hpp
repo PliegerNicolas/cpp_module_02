@@ -27,7 +27,7 @@ class Fixed
 
 		/* Member functions */
 		int		getRawBits(void) const;
-		void	setRawBits(int raw);
+		void	setRawBits(const int raw);
 
 	private:
 		/* Attributes */

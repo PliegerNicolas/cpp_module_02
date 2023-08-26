@@ -13,6 +13,7 @@
 # define FIXED_HPP
 
 # include <iostream>
+# include <iomanip>
 # include <cmath>
 
 class Fixed
@@ -32,7 +33,7 @@ class Fixed
 
 		/* Member functions */
 		int		getRawBits(void) const;
-		void	setRawBits(int raw);
+		void	setRawBits(const int raw);
 
 		int		toInt(void) const;
 		float	toFloat(void) const;

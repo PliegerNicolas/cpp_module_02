@@ -51,7 +51,7 @@ Fixed	&Fixed::operator=(const Fixed &other)
 
 std::ostream	&operator<<(std::ostream &os, const Fixed &fixed)
 {
-	os << fixed.toFloat();
+	os << std::setprecision(8) << fixed.toFloat();
 	return (os);
 }
 
@@ -180,7 +180,7 @@ int	Fixed::getRawBits(void) const
 	return (_value);
 }
 
-void	Fixed::setRawBits(int raw)
+void	Fixed::setRawBits(const int raw)
 {
 	_value = raw;
 }

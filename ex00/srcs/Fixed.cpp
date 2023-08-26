@@ -65,7 +65,7 @@ int	Fixed::getRawBits(void) const
 	return (_value);
 }
 
-void	Fixed::setRawBits(int raw)
+void	Fixed::setRawBits(const int raw)
 {
 	std::cout << "\033[36m" << "setRawBits" << "\033[0m";
 	std::cout << " member function ";

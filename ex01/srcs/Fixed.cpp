@@ -6,7 +6,7 @@
 /*   By: nicolas <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 00:47:07 by nicolas           #+#    #+#             */
-/*   Updated: 2023/06/06 01:47:15 by nicolas          ###   ########.fr       */
+/*   Updated: 2023/08/26 11:27:34 by nplieger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "Fixed.hpp"
@@ -72,17 +72,9 @@ Fixed	&Fixed::operator=(const Fixed &other)
 
 std::ostream	&operator<<(std::ostream &os, const Fixed &fixed)
 {
-	os << fixed.toFloat();
+	os << std::setprecision(8) << fixed.toFloat();
 	return (os);
 }
-
-/*
-std::ostream	&operator<<(std::ostream& os, const Fixed &fixed)
-{
-    os << fixed.toFloat();
-    return (os);
-}
-*/
 
 /* Member Functions */
 
@@ -98,7 +90,7 @@ int	Fixed::getRawBits(void) const
 	return (_value);
 }
 
-void	Fixed::setRawBits(int raw)
+void	Fixed::setRawBits(const int raw)
 {
 	std::cout << "\033[36m" << "setRawBits" << "\033[0m";
 	std::cout << " member function ";

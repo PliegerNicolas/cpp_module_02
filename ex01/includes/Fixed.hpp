@@ -6,13 +6,14 @@
 /*   By: nicolas <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 00:43:14 by nicolas           #+#    #+#             */
-/*   Updated: 2023/06/06 01:49:50 by nicolas          ###   ########.fr       */
+/*   Updated: 2023/08/26 11:28:01 by nplieger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #ifndef FIXED_HPP
 # define FIXED_HPP
 
 # include <iostream>
+# include <iomanip>
 # include <cmath>
 
 class Fixed
@@ -32,7 +33,7 @@ class Fixed
 
 		/* Member functions */
 		int		getRawBits(void) const;
-		void	setRawBits(int raw);
+		void	setRawBits(const int raw);
 
 		int		toInt(void) const;
 		float	toFloat(void) const;

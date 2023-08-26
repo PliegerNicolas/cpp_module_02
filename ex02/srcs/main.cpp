@@ -6,72 +6,176 @@
 /*   By: nicolas <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 00:41:35 by nicolas           #+#    #+#             */
-/*   Updated: 2023/06/06 12:49:40 by nicolas          ###   ########.fr       */
+/*   Updated: 2023/08/26 12:12:45 by nplieger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "Fixed.hpp"
-/*
-int main() {
-    Fixed a;
-    Fixed const b(10);
-    Fixed const c(42.42f);
-    Fixed const d(b);
 
-    std::cout << "a is " << "\033[33m" << a << "\033[0m" << std::endl;
-    std::cout << "b is " << "\033[33m" << b << "\033[0m" << std::endl;
-    std::cout << "c is " << "\033[33m" << c << "\033[0m" << std::endl;
-    std::cout << "d is " << "\033[33m" << d << "\033[0m" << std::endl;
+static void	compareInts(void)
+{
 
-    std::cout << std::endl;
+	std::cout << "\033[33m";
+	std::cout << "Compare fixed-ints";
+	std::cout << "\033[0m" << std::endl;
 
-    std::cout << "a > b : " << "\033[33m" << (a > b) << "\033[0m" << std::endl;
-    std::cout << "a < b : " << "\033[33m" << (a < b) << "\033[0m" << std::endl;
-    std::cout << "a >= b: " << "\033[33m" << (a >= b) << "\033[0m" << std::endl;
-    std::cout << "a <= b: " << "\033[33m" << (a <= b) << "\033[0m" << std::endl;
-    std::cout << "a == b: " << "\033[33m" << (a == b) << "\033[0m" << std::endl;
-    std::cout << "a != b: " << "\033[33m" << (a != b) << "\033[0m" << std::endl;
+	Fixed	a(10);
+	Fixed	b(20);
 
-    std::cout << std::endl;
+	std::cout << "a is " << a << std::endl;
+	std::cout << "b is " << b << std::endl << std::endl;
 
-    std::cout << "a + b: " << "\033[33m" << (a + b) << "\033[0m" << std::endl;
-    std::cout << "a - b: " << "\033[33m" << (a - b) << "\033[0m" << std::endl;
-    std::cout << "a * b: " << "\033[33m" << (a * b) << "\033[0m" << std::endl;
-    std::cout << "a / b: " << "\033[33m" << (a / b) << "\033[0m" << std::endl;
-
-    std::cout << std::endl;
-
-    std::cout << "++a: " << "\033[33m" << (++a) << "\033[0m" << std::endl;
-    std::cout << "a++: " << "\033[33m" << (a++) << "\033[0m" << std::endl;
-    std::cout << "a: " << "\033[33m" << a << "\033[0m" << std::endl;
-
-    std::cout << std::endl;
-
-    std::cout << "--a: " << "\033[33m" << (--a) << "\033[0m" << std::endl;
-    std::cout << "a--: " << "\033[33m" << (a--) << "\033[0m" << std::endl;
-    std::cout << "a: " << "\033[33m" << a << "\033[0m" << std::endl;
-
-    std::cout << std::endl;
-
-    std::cout << "min(a, b): " << "\033[33m" << Fixed::min(a, b) << "\033[0m" << std::endl;
-    std::cout << "max(a, b): " << "\033[33m" << Fixed::max(a, b) << "\033[0m" << std::endl;
-
-    return 0;
+	std::cout << "a < b : " << (a < b) << std::endl;
+	std::cout << "a <= b : " << (a <= b) << std::endl;
+	std::cout << "a > b : " << (a > b) << std::endl;
+	std::cout << "a >= b : " << (a >= b) << std::endl;
+	std::cout << "a == b : " << (a == b) << std::endl;
+	std::cout << "a != b : " << (a != b) << std::endl;
 }
-*/
+
+static void	compareFloats(void)
+{
+
+	std::cout << "\033[33m";
+	std::cout << "Compare fixed-floats";
+	std::cout << "\033[0m" << std::endl;
+
+	Fixed	a(42.42424242f);
+	Fixed	b(24.2424f);
+
+	std::cout << "a is " << a << std::endl;
+	std::cout << "b is " << b << std::endl << std::endl;
+
+	std::cout << "a < b : " << (a < b) << std::endl;
+	std::cout << "a <= b : " << (a <= b) << std::endl;
+	std::cout << "a > b : " << (a > b) << std::endl;
+	std::cout << "a >= b : " << (a >= b) << std::endl;
+	std::cout << "a == b : " << (a == b) << std::endl;
+	std::cout << "a != b : " << (a != b) << std::endl;
+}
+
+static void	compareEqualFloats(void)
+{
+
+	std::cout << "\033[33m";
+	std::cout << "Compare similar fixed-floats";
+	std::cout << "\033[0m" << std::endl;
+
+	Fixed	a(15.505f);
+	Fixed	b(15.5055f);
+
+	std::cout << "a is " << a << std::endl;
+	std::cout << "b is " << b << std::endl << std::endl;
+
+	std::cout << "a < b : " << (a < b) << std::endl;
+	std::cout << "a <= b : " << (a <= b) << std::endl;
+	std::cout << "a > b : " << (a > b) << std::endl;
+	std::cout << "a >= b : " << (a >= b) << std::endl;
+	std::cout << "a == b : " << (a == b) << std::endl;
+	std::cout << "a != b : " << (a != b) << std::endl;
+}
+
+static void	compareIntFromFloat(void)
+{
+
+	std::cout << "\033[33m";
+	std::cout << "Compare int-fixed and float-fixed";
+	std::cout << "\033[0m" << std::endl;
+
+	Fixed	a(15.505f);
+	Fixed	b(15);
+
+	std::cout << "a is " << a << std::endl;
+	std::cout << "b is " << b << std::endl << std::endl;
+
+	std::cout << "a < b : " << (a < b) << std::endl;
+	std::cout << "a <= b : " << (a <= b) << std::endl;
+	std::cout << "a > b : " << (a > b) << std::endl;
+	std::cout << "a >= b : " << (a >= b) << std::endl;
+	std::cout << "a == b : " << (a == b) << std::endl;
+	std::cout << "a != b : " << (a != b) << std::endl;
+}
+
+static void	addition(void)
+{
+	std::cout << "\033[33m";
+	std::cout << "Addition";
+	std::cout << "\033[0m" << std::endl;
+
+	Fixed	a(15.505f);
+	Fixed	b(10);
+
+	std::cout << "a is " << a << std::endl;
+	std::cout << "b is " << b << std::endl << std::endl;
+
+	std::cout << "a + b : " << a + b << std::endl;
+	std::cout << "b + a : " << b + a << std::endl;
+	std::cout << "a + 1 : " << a + 1 << std::endl;
+	std::cout << "a + 1.5f : " << a + 1.5f << std::endl;
+	std::cout << "a++ : " << a++ << std::endl;
+	std::cout << "++a : " << ++a << std::endl;
+	std::cout << "++ increments by a predetermined step size" << std::endl;
+}
+
+static void	substraction(void)
+{
+	std::cout << "\033[33m";
+	std::cout << "Substraction";
+	std::cout << "\033[0m" << std::endl;
+
+	Fixed	a(15.505f);
+	Fixed	b(10);
+
+	std::cout << "a is " << a << std::endl;
+	std::cout << "b is " << b << std::endl;
+}
+
+static void multiplication(void)
+{
+	std::cout << "\033[33m";
+	std::cout << "Multiplication";
+	std::cout << "\033[0m" << std::endl;
+
+	Fixed	a(15.505f);
+	Fixed	b(10);
+
+	std::cout << "a is " << a << std::endl;
+	std::cout << "b is " << b << std::endl;
+}
+
+static void division(void)
+{
+	std::cout << "\033[33m";
+	std::cout << "Division";
+	std::cout << "\033[0m" << std::endl;
+
+	Fixed	a(15.505f);
+	Fixed	b(10);
+
+	std::cout << "a is " << a << std::endl;
+	std::cout << "b is " << b << std::endl;
+}
 
 int	main(void)
 {
-	Fixed		a;
-	const Fixed	b(Fixed(5.05f) * Fixed( 2 ));
+	/* comparison operators */
+	compareInts();
+	std::cout << std::endl;
+	compareFloats();
+	std::cout << std::endl;
+	compareEqualFloats();
+	std::cout << std::endl;
+	compareIntFromFloat();
+	std::cout << std::endl;
 
-	std::cout << a << std::endl;
-	std::cout << ++a << std::endl;
-	std::cout << a << std::endl;
-	std::cout << a++ << std::endl;
-	std::cout << a << std::endl;
-	std::cout << b << std::endl;
-
-	std::cout << Fixed::max(a, b) << std::endl;
+	/* arithmetic operators */
+	addition();
+	std::cout << std::endl;
+	substraction();
+	std::cout << std::endl;
+	multiplication();
+	std::cout << std::endl;
+	division();
+	std::cout << std::endl;
 
 	return (0);
 }
