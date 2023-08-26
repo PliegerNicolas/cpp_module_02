@@ -6,7 +6,7 @@
 /*   By: nicolas <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 00:41:35 by nicolas           #+#    #+#             */
-/*   Updated: 2023/08/26 12:12:45 by nplieger         ###   ########.fr       */
+/*   Updated: 2023/08/26 13:27:16 by nplieger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "Fixed.hpp"
@@ -111,9 +111,13 @@ static void	addition(void)
 	std::cout << "b + a : " << b + a << std::endl;
 	std::cout << "a + 1 : " << a + 1 << std::endl;
 	std::cout << "a + 1.5f : " << a + 1.5f << std::endl;
-	std::cout << "a++ : " << a++ << std::endl;
+
+	std::cout << "Increment operator increments from the smallest";
+	std::cout << " available step : 1 / 2^8" << std::endl;
+	std::cout << "1/2^8 : " << 1.0f / (1 << 8) << std::endl;
 	std::cout << "++a : " << ++a << std::endl;
-	std::cout << "++ increments by a predetermined step size" << std::endl;
+	std::cout << "a++ : " << a++ << std::endl;
+	std::cout << "a : " << a << std::endl;
 }
 
 static void	substraction(void)
@@ -126,20 +130,37 @@ static void	substraction(void)
 	Fixed	b(10);
 
 	std::cout << "a is " << a << std::endl;
-	std::cout << "b is " << b << std::endl;
+	std::cout << "b is " << b << std::endl << std::endl;
+
+	std::cout << "a - b : " << a - b << std::endl;
+	std::cout << "b - a : " << b - a << std::endl;
+	std::cout << "a - 1 : " << a - 1 << std::endl;
+	std::cout << "a - 1.5f : " << a - 1.5f << std::endl;
+
+	std::cout << "Increment operator increments from the smallest";
+	std::cout << " available step : 1 / 2^8" << std::endl;
+	std::cout << "1/2^8 : " << 1.0f / (1 << 8) << std::endl;
+	std::cout << "--a : " << --a << std::endl;
+	std::cout << "a-- : " << a-- << std::endl;
+	std::cout << "a : " << a << std::endl;
 }
 
 static void multiplication(void)
 {
 	std::cout << "\033[33m";
-	std::cout << "Multiplication";
+	std::cout << "Division";
 	std::cout << "\033[0m" << std::endl;
 
 	Fixed	a(15.505f);
 	Fixed	b(10);
 
 	std::cout << "a is " << a << std::endl;
-	std::cout << "b is " << b << std::endl;
+	std::cout << "b is " << b << std::endl << std::endl;
+
+	std::cout << "a * b : " << a * b << std::endl;
+	std::cout << "b * a : " << b * a << std::endl;
+	std::cout << "a * 1 : " << a * 1 << std::endl;
+	std::cout << "a * 1.5f : " << a * 1.5f << std::endl;
 }
 
 static void division(void)
@@ -152,9 +173,49 @@ static void division(void)
 	Fixed	b(10);
 
 	std::cout << "a is " << a << std::endl;
-	std::cout << "b is " << b << std::endl;
+	std::cout << "b is " << b << std::endl << std::endl;
+
+	std::cout << "a / b : " << a / b << std::endl;
+	std::cout << "b / a : " << b / a << std::endl;
+	std::cout << "a / 1 : " << a / 1 << std::endl;
+	std::cout << "a / 1.5f : " << a / 1.5f << std::endl;
 }
 
+static void	max(void)
+{
+	std::cout << "\033[33m";
+	std::cout << "Max";
+	std::cout << "\033[0m" << std::endl;
+
+	Fixed	a(15.505f);
+	Fixed	b(10);
+	Fixed	c(-8.5f);
+
+	std::cout << "a is " << a << std::endl;
+	std::cout << "b is " << b << std::endl;
+	std::cout << "c is " << c << std::endl << std::endl;
+
+	std::cout << "max(a, b) : " << Fixed::max(a, b) << std::endl;
+	std::cout << "max(a, c) : " << Fixed::max(a, c) << std::endl;
+}
+
+static void	min(void)
+{
+	std::cout << "\033[33m";
+	std::cout << "Min";
+	std::cout << "\033[0m" << std::endl;
+
+	Fixed	a(15.505f);
+	Fixed	b(10);
+	Fixed	c(-8.5f);
+
+	std::cout << "a is " << a << std::endl;
+	std::cout << "b is " << b << std::endl;
+	std::cout << "c is " << c << std::endl << std::endl;
+
+	std::cout << "min(a, b) : " << Fixed::min(a, b) << std::endl;
+	std::cout << "min(a, c) : " << Fixed::min(a, c) << std::endl;
+}
 int	main(void)
 {
 	/* comparison operators */
@@ -175,6 +236,12 @@ int	main(void)
 	multiplication();
 	std::cout << std::endl;
 	division();
+	std::cout << std::endl;
+
+	/* min and max */
+	max();
+	std::cout << std::endl;
+	min();
 	std::cout << std::endl;
 
 	return (0);

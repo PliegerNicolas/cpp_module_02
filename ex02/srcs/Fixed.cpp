@@ -6,7 +6,7 @@
 /*   By: nicolas <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 00:47:07 by nicolas           #+#    #+#             */
-/*   Updated: 2023/08/26 12:11:08 by nplieger         ###   ########.fr       */
+/*   Updated: 2023/08/26 13:14:09 by nplieger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "Fixed.hpp"
@@ -118,8 +118,10 @@ Fixed	&Fixed::operator++(void)
 
 Fixed	Fixed::operator++(int)
 {
-	++(_value);
-	return (*this);
+	Fixed	temp(*this);
+
+	++(*this);
+	return (temp);
 }
 
 Fixed	&Fixed::operator--(void)
@@ -130,8 +132,9 @@ Fixed	&Fixed::operator--(void)
 
 Fixed	Fixed::operator--(int)
 {
-	--(_value);
-	return (*this);
+	Fixed	temp(*this);
+	--(*this);
+	return (temp);
 }
 
 // Overloaded member functions
